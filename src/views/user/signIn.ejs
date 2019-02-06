@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <% include ./partials/head.ejs %>
+    <% include ../static/partials/head.ejs %>
 <body>
-    <% include ../static/partials/messages.ejs %>
     <% include ../static/partials/navbar.ejs %>
     <main class="container">
-        <header class="jumbotron">
-            <h1 class="display-2">Hello, world!</h1>
-        </header>
-
+        <% include ../static/partials/messages.ejs %>
+        <form class="mt-3 col-lg-9 col-md-12" method="POST" action="/sign_in">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>
