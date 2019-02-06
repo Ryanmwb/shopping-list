@@ -35,5 +35,10 @@ module.exports = {
     },
     signInForm(req, res, next){
         res.render("user/signIn")
+    },
+    signOut(req, res, next){
+        req.logout();
+        req.flash("Notice", "You've successfully logged out.");
+        res.redirect("/")
     }
 }
