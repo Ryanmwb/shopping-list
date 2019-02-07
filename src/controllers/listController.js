@@ -7,7 +7,8 @@ module.exports = {
     },
     create(req, res, next){
         var newList = {
-            name: req.body.listName
+            name: req.body.listName,
+            description: req.body.listDescription
         }
         var groupId = req.params.groupId
         listQueries.createList(newList, groupId, (err, list) => {
@@ -50,7 +51,8 @@ module.exports = {
     update(req, res, next){
         var newList = {
             name: req.body.listName,
-            groupId: req.params.groupId
+            groupId: req.params.groupId,
+            description: req.body.listDescription
         }
         listQueries.update(req.params.listId, newList, (err, list) => {
             if(err){

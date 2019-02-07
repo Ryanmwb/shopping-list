@@ -4,6 +4,13 @@
 <body>
     <% include ../static/partials/navbar.ejs %>
     <main class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/groups">My Groups</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Group - <%=group.name %> - Edit</li>
+            </ol>
+        </nav>
         <% include ../static/partials/messages.ejs %>
         <header class="jumbotron">
             <h1 class="display-2">(group/edit)</h1>

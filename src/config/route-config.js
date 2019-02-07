@@ -3,10 +3,12 @@ module.exports = {
         const userRoutes = require("../routes/userRoutes");
         const groupRoutes = require("../routes/groupRoutes");
         const listRoutes = require("../routes/listRoutes");
+        const itemRoutes = require("../routes/itemRoutes");
         
         app.use(userRoutes);
         app.use(groupRoutes);
         app.use(listRoutes);
+        app.use(itemRoutes);
     }
 }
 

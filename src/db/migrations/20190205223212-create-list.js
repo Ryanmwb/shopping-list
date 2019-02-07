@@ -22,6 +22,11 @@ module.exports = {
           as: "groupId"
         }
       },
+      description: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        defaultValue: "Add Description"
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

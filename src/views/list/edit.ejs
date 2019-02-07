@@ -8,9 +8,9 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="/groups">Groups</a></li>
+                <li class="breadcrumb-item"><a href="/groups">My Groups</a></li>
                 <li class="breadcrumb-item"><a href="/groups/<%= groupId %>/show">Group Id - <%= groupId %></a></li>
-                <li class="breadcrumb-item active" aria-current="page">List - <%= list.name %> - edit</li>
+                <li class="breadcrumb-item active" aria-current="page">List - <%= list.name %> - Edit</li>
             </ol>
         </nav>
         <header class="jumbotron">
@@ -21,6 +21,10 @@
                 <label for="listName">List Name</label>
                 <input type="text" class="form-control" id="listName" name="listName" value="<%= list.name %>">
             </div>
+            <div class="form-group">
+                    <label for="listDescription">List Description</label>
+                    <textarea name="listDescription" id="listDescription" class="form-control"><%= list.Description %></textarea>
+                </div>
             <button type="submit" class="btn btn-success">Save Changes</button>
         </form>
     </main>

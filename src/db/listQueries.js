@@ -4,7 +4,8 @@ module.exports = {
     createList(newList, groupId, callback){
         return List.create({
             name: newList.name,
-            groupId: groupId
+            groupId: groupId,
+            description: newList.description
         })
         .then((list) => {
             callback(null, list)
@@ -26,7 +27,8 @@ module.exports = {
         return List.findById(listId)
         .then((list) => {
             list.update({
-                name: newList.name
+                name: newList.name,
+                description: newList.description
             })
             .then((updatedList) => {
                 callback(null, updatedList)

@@ -14,10 +14,12 @@ module.exports = {
       },
       purchased: {
         type: Sequelize.BOOLEAN,
-        allowNull: false
+        allowNull: false,
+        defaultValue: false
       },
       price: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING, 
+        defaultValue: ""
       },
       listId: {
         type: Sequelize.INTEGER,

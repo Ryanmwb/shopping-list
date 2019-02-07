@@ -5,6 +5,13 @@
     <% include ../static/partials/navbar.ejs %>
     <main class="container">
         <% include ../static/partials/messages.ejs %>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/groups">My Groups</a></li>
+                <li class="breadcrumb-item active" aria-current="page">New Group</li>
+            </ol>
+        </nav>
         <header class="jumbotron">
             <h1 class="display-2">Create Group (group/new)</h1>
         </header>

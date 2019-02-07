@@ -8,6 +8,11 @@ module.exports = (sequelize, DataTypes) => {
     groupId: {
       allowNull: false,
       type: DataTypes.INTEGER
+    },
+    description: {
+      allowNull: true,
+      type: DataTypes.STRING,
+      defaultValue: "Add Description"
     }
     
   }, {});

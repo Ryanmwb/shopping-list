@@ -7,10 +7,12 @@ module.exports = (sequelize, DataTypes) => {
     },
     purchased: {
       type: DataTypes.BOOLEAN,
-      allowNull: false
+      allowNull: false,
+      defaultValue: false
     },
     price: {
-      type: DataTypes.STRING
+      type: DataTypes.STRING, 
+      defaultValue: ""
     },
     listId: {
       type: DataTypes.INTEGER,
