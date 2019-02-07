@@ -4,12 +4,44 @@
 <body>
 
     <% include ../static/partials/navbar.ejs %>
+    
     <main class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">My Groups</li>
+            </ol>
+        </nav>
         <% include ../static/partials/messages.ejs %>
         <header class="jumbotron">
-            <h1 class="display-2">Hello, world!</h1>
+            <h1 class="display-2">My Groups (index)</h1>
         </header>
-
+        <a href="/groups/new">
+            <button class="btn btn-success">Create Group</button>
+        </a>
+        <h3>Groups</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Owner</th>
+                    <th scope="col">Members</th>
+                    <th scope="col">Last Activity</th>
+                    <th scope="col">View</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% groups.forEach((group) => { %>
+                <tr>
+                    <td scope="row"><%= group.name %></td>
+                    <td><%= group.userId %></td>
+                    <td>not built</td>
+                    <td>not built</td>
+                    <td><a href="groups/<%= group.id %>/show"><button class="btn btn-info">Vist Group</button></a></td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>

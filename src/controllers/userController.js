@@ -25,8 +25,8 @@ module.exports = {
     signIn(req, res, next){
         passport.authenticate("local")(req, res, function(){
             if(!req.user){
+                res.redirect("/sign_in_form");
                 req.flash("notice", "Sign in failed. Please try again.")
-                res.redirect("/sign_in");
             } else {
                 req.flash("notice", "You've successfully signed in!");
                 res.redirect("/");
@@ -42,3 +42,27 @@ module.exports = {
         res.redirect("/")
     }
 }
+
+/*
+For showing messages
+
+var currentOffset = 0;
+var pageSize = 10;
+
+function getMessages() {
+    return Message.findAll({
+        offset: currentOffset,
+        limit: pageSize
+    });
+};
+
+// ON PAGE LOAD
+getMessages();
+
+var loadMore = document.querySelector('#loadMore');
+loadMore.addEventListener('click', () => {
+    currentOffset += pageSize;
+    getMessages();
+});
+
+*/

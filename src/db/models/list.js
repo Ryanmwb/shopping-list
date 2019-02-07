@@ -13,6 +13,14 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   List.associate = function(models) {
     // associations can be defined here
+    List.belongsTo(models.Group, {
+      foreignKey: "groupId",
+      onDelete: "CASCADE"
+    });
+    List.hasMany(models.Item, {
+      foreignKey: "itemId",
+      as: "items"
+    })
   };
   return List;
 };

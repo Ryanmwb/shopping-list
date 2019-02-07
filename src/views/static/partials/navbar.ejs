@@ -6,22 +6,25 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/">Home</a>
-                </li>
                 <% if(currentUser) { %>
                     <li class="nav-item">
                         <a class="nav-link" href="/users/<%= currentUser.id %>">Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/sign_out">Sign out</a>
+                        <a class="nav-link" href="/sign_out">Sign-out</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="/groups">My Groups</a>
                     </li>
                 <% } else { %>
                     <li class="nav-item">
-                        <a class="nav-link" href="/sign_up">Sign up</a>
+                        <a class="nav-link" href="/sign_up">Sign-up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/sign_in_form">Sign in</a>
+                        <a class="nav-link" href="/sign_in_form">Sign-in</a>
+                    </li>
+                    <li class="nav-item">
+                            <a class="nav-link" href="/groups">My Groups</a>
                     </li>
                 <% }%>
             </ul>

@@ -5,11 +5,20 @@
 <body>
     <% include ../static/partials/navbar.ejs %>
     <main class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/groups">Groups</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Group - <%=group.name %></li>
+            </ol>
+        </nav>
         <% include ../static/partials/messages.ejs %>
         <header class="jumbotron">
-            <h1 class="display-2">Hello, world!</h1>
+            <h1 class="display-2">(group/show)</h1>
         </header>
-
+        <a href="/groups/<%= group.id %>/edit_form"><button class="btn btn-warning">Edit Group</button></a>
+        <!-- Loop through lists here and turn them into bootstrap cards -->
+        <a href="/groups/<%= group.id %>/lists/new"><button class="btn btn-success">Create List</button></a>
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>

@@ -6,9 +6,15 @@
     <main class="container">
         <% include ../static/partials/messages.ejs %>
         <header class="jumbotron">
-            <h1 class="display-2">Hello, world!</h1>
+            <h1 class="display-2">(group/edit)</h1>
         </header>
-
+        <form method="POST" action="/groups/<%= group.id %>/edit">
+            <div class="form-group">
+                <label for="groupName">Group Name</label>
+                <input type="text" class="form-control" id="groupName" name="groupName" value="<%= group.name %>">
+            </div>
+            <button type="submit" class="btn btn-success">Save Changes</button>
+        </form>
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>

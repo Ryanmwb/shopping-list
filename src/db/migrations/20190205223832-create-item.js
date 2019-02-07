@@ -21,7 +21,23 @@ module.exports = {
       },
       listId: {
         type: Sequelize.INTEGER,
-        allowNull: false
+        allowNull: false,
+        onDelete: "CASCADE",
+        references: {
+          model: "Lists",
+          key: "id",
+          as: "listId"
+        }
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        onDelete: "CASCADE",
+        references: {
+          model: "Users",
+          key: "id",
+          as: "userId"
+        }
       },
       notes: {
         type: Sequelize.STRING
