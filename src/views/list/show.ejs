@@ -7,10 +7,18 @@
     <% include ../static/partials/navbar.ejs %>
     <main class="container">
         <% include ../static/partials/messages.ejs %>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/groups">Groups</a></li>
+                <li class="breadcrumb-item"><a href="/groups/<%= groupId %>/show">Group Id - <%= groupId %></a></li>
+                <li class="breadcrumb-item active" aria-current="page">List - <%= list.name %></li>
+            </ol>
+        </nav>
         <header class="jumbotron">
             <h1 class="display-2"><%= list.name %> (list/show)</h1>
         </header>
-
+        
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>

@@ -1,4 +1,5 @@
 const Group = require("./models").Group;
+const List = require("./models").List
 
 module.exports = {
     createGroup(req, callback){
@@ -41,6 +42,20 @@ module.exports = {
             })
             .then((updatedGroup) => {
                 callback(null, updatedGroup);
+            })
+            .catch((err) => {
+                callback(err)
+            })
+        })
+    },
+    findGroupAndLists(groupId, callback){
+        return Group.findById(groupId)
+        .then((group) => {
+            List.findAll({
+                where: {groupId: group.id}
+            })
+            .then((lists) => {
+                callback(null, group, lists)
             })
             .catch((err) => {
                 callback(err)

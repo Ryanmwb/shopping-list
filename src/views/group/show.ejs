@@ -17,7 +17,17 @@
             <h1 class="display-2"><%= group.name %> (group/show)</h1>
         </header>
         <a href="/groups/<%= group.id %>/edit_form"><button class="btn btn-warning">Edit Group</button></a>
-        <!-- Loop through lists here and turn them into bootstrap cards -->
+        <!--Display lists here-->
+        <% lists.forEach((list) => { %>
+            <div class="col-sm-12 col-md-6 col-lg-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= list.name %></h5>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        <% }) %>
         <a href="/groups/<%= group.id %>/lists/new"><button class="btn btn-success">Create List</button></a>
     </main>
 
