@@ -43,5 +43,19 @@ module.exports = {
         } else {
           return next();
         }
-    }
+    },
+    validateCreateList(req, res, next){
+      if(req.method === "POST"){
+        req.checkBody("listName", "must be at least one character").isLength({min: 1})
+      }
+
+      const errors = req.validationErrors();
+ 
+      if (errors) {
+        req.flash("error", errors);
+        return res.redirect(req.headers.referer);
+      } else {
+        return next();
+      }
+  }
 }

@@ -28,14 +28,12 @@ module.exports = {
                 req.flash("error", err);
                 res.redirect("/");
             } else {
-                console.log("my groups are.....")
-                console.log(groups);
                 res.render("group/index", {groups});
             }
         })
     },
     show(req, res, next){
-        groupQueries.findGroup(req.params.id, (err, group) => {
+        groupQueries.findGroup(req.params.groupId, (err, group) => {
             if(err){
                 console.log(err)
                 req.flash("error", err);
@@ -46,13 +44,28 @@ module.exports = {
         })
     },
     editForm(req, res, next){
-        groupQueries.findGroup(req.params.id, (err, group) => {
+        groupQueries.findGroup(req.params.groupId, (err, group) => {
             if(err){
                 console.log(err)
                 req.flash("error", err);
                 res.redirect(`/groups/${group.id}/show`);
             } else {
                 res.render("group/edit", {group})
+            }
+        })
+    },
+    update(req, res, next){
+        var newGroup = {
+            name: req.body.groupName
+        }
+        groupQueries.update(req.params.groupId, newGroup, (err, group) => {
+            if(err){
+                console.log(err);
+                req.flash("error", err);
+                res.redirect("/")
+            } else {
+                req.flash("notice", "Group has been updated!");
+                res.redirect(`/groups/${group.id}/show`);
             }
         })
     }

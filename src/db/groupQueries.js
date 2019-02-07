@@ -32,5 +32,19 @@ module.exports = {
         .catch((err) => {
             callback(err)
         })
+    },
+    update(id, newGroup, callback){
+        return Group.findById(id)
+        .then((group) => {
+            group.update({
+                name: newGroup.name
+            })
+            .then((updatedGroup) => {
+                callback(null, updatedGroup);
+            })
+            .catch((err) => {
+                callback(err)
+            })
+        })
     }
 }

@@ -8,7 +8,7 @@
         <header class="jumbotron">
             <h1 class="display-2">(group/edit)</h1>
         </header>
-        <form method="POST" action="/groups/<%= group.id %>/edit">
+        <form method="POST" action="/groups/<%= group.id %>/update">
             <div class="form-group">
                 <label for="groupName">Group Name</label>
                 <input type="text" class="form-control" id="groupName" name="groupName" value="<%= group.name %>">

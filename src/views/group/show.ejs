@@ -14,7 +14,7 @@
         </nav>
         <% include ../static/partials/messages.ejs %>
         <header class="jumbotron">
-            <h1 class="display-2">(group/show)</h1>
+            <h1 class="display-2"><%= group.name %> (group/show)</h1>
         </header>
         <a href="/groups/<%= group.id %>/edit_form"><button class="btn btn-warning">Edit Group</button></a>
         <!-- Loop through lists here and turn them into bootstrap cards -->
