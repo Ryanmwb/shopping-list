@@ -24,14 +24,15 @@ module.exports = {
     },
     show(req, res, next){
         var groupId = req.params.groupId;
+        var listId = req.params.listId;
 
-        listQueries.findList(req.params.listId, (err, list) => {
+        listQueries.findListAndItems(listId, (err, list, items) => {
             if(err){
                 console.log(err);
                 req.flash("error", err);
                 res.redirect(`/groups/${req.params.groupId}/show`);
             } else {
-                res.render("list/show", {list, groupId})
+                res.render("list/show", {list, groupId, items})
             }
         })
     }, 

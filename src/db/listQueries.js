@@ -1,4 +1,6 @@
 const List = require("./models").List;
+const Item = require("./models").Item;
+
 
 module.exports = {
     createList(newList, groupId, callback){
@@ -32,6 +34,20 @@ module.exports = {
             })
             .then((updatedList) => {
                 callback(null, updatedList)
+            })
+            .catch((err) => {
+                callback(err)
+            })
+        })
+    },
+    findListAndItems(listId, callback){
+        return List.findById(listId)
+        .then((list) => {
+            Item.findAll({
+                where: {listId: listId}
+            })
+            .then((items) => {
+                callback(null, list, items)
             })
             .catch((err) => {
                 callback(err)

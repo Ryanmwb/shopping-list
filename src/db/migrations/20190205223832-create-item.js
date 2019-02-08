@@ -41,9 +41,6 @@ module.exports = {
           as: "userId"
         }
       },
-      notes: {
-        type: Sequelize.STRING
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

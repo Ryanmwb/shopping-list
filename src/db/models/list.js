@@ -23,9 +23,9 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: "CASCADE"
     });
     List.hasMany(models.Item, {
-      foreignKey: "itemId",
+      foreignKey: "listId",
       as: "items"
-    })
+    });
   };
   return List;
 };

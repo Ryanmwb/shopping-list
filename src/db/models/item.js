@@ -22,10 +22,6 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       allowNull: false
     },
-    notes: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
   }, {});
   Item.associate = function(models) {
     // associations can be defined here
