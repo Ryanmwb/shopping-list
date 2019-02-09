@@ -21,9 +21,15 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      notifications: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        default: true
+      },
       phoneNumber: {
         type: Sequelize.BIGINT,
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       createdAt: {
         allowNull: false,

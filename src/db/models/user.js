@@ -15,9 +15,15 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    notifications: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      default: true
+    },
     phoneNumber: {
       type: DataTypes.BIGINT,
-      allowNull: false
+      allowNull: false, 
+      unique: true
     }
   }, {});
   User.associate = function(models) {

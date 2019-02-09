@@ -1,0 +1,25 @@
+<!--Add members to group via phone number -->
+
+<!DOCTYPE html>
+<html>
+    <% include ../static/partials/head.ejs %>
+<body>
+    <% include ../static/partials/navbar.ejs %>
+    <main class="container">
+        <% include ../static/partials/messages.ejs %>
+        <header class="jumbotron">
+            <h1 class="display-2">Add Members</h1>
+            <form class="mt-5 px-auto" method="POST" action="/groups/<%= groupId %>/members/add">
+                <div class="form-group col-lg-8">
+                    <label for="cellNumber">Cell Number</label>
+                    <input type="text" class="form-control" id="cellNumber" name="cellNumber">
+                    <small class="form-text text-muted">Add one member at a time.  Enter 10 digit cell number of User. </small>
+                </div>
+                <button type="submit" class="btn btn-success">Add Member</button>
+            </form>
+        </header>
+    </main>
+
+    <% include ../static/partials/baseScripts.ejs %>
+</body>
+</html>

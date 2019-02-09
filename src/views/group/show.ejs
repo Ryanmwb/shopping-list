@@ -15,6 +15,7 @@
         <% include ../static/partials/messages.ejs %>
         <header class="jumbotron pb-4">
             <h1 class="display-2 mb-5"><%= group.name %> (group/show)</h1>
+            <a href="/groups/<%= group.id %>/members/new"><button class="btn btn-success">Add Member</button></a>
             <a href="/groups/<%= group.id %>/edit_form"><button class="btn btn-warning">Edit Group</button></a>
         </header>
         
