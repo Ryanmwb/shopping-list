@@ -24,7 +24,7 @@ module.exports = {
       notifications: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
-        default: true
+        defaultValue: true
       },
       phoneNumber: {
         type: Sequelize.BIGINT,

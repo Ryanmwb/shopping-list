@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
     notifications: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
-      default: true
+      defaultValue: true
     },
     phoneNumber: {
       type: DataTypes.BIGINT,

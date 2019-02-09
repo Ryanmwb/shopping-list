@@ -7,18 +7,30 @@ module.exports = {
         res.render("user/signUp")
     },
     create(req, res, next){
+        var twilio = require('twilio');
+        var accountSid = process.env.accountSid;
+        var auth_token = process.env.auth_token;
+        var client = new twilio(accountSid, auth_token)
+
         var newUser = {
             username: req.body.username,
             password: req.body.password,
             email: req.body.email,
             phoneNumber: req.body.phoneNumber
         }
+
+        var twilioCell = "1"+newUser.phoneNumber.toString()
         userQueries.createUser(newUser, (err, user) => {
             if(err){
                 console.log(err)
                 req.flash("error", err)
                 res.redirect("/sign_up")
             } else {
+                client.messages.create({
+                    body: 'Welcome to Shoppit!',
+                    to: twilioCell,
+                    from: '13175504888'
+                })
                 req.flash("notice", "You've successfully signed up!")
                 res.redirect("/")
             }
