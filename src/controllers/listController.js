@@ -1,14 +1,17 @@
 const listQueries = require("../db/listQueries");
+const groupQueries = require("../db/groupQueries");
 
 module.exports = {
     new(req, res, next){
         var groupId = req.params.groupId
-        res.render("list/new", {groupId});
+        var groupName = req.params.groupName
+        res.render("list/new", {groupId, groupName});
     },
     create(req, res, next){
         var newList = {
             name: req.body.listName,
-            description: req.body.listDescription
+            description: req.body.listDescription,
+            groupName: req.params.groupName
         }
         var groupId = req.params.groupId
         listQueries.createList(newList, groupId, (err, list) => {

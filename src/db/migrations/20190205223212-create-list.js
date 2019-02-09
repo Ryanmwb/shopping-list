@@ -22,6 +22,10 @@ module.exports = {
           as: "groupId"
         }
       },
+      groupName: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       description: {
         type: Sequelize.STRING,
         allowNull: true,

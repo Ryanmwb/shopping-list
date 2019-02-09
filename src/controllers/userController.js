@@ -9,7 +9,8 @@ module.exports = {
         var newUser = {
             username: req.body.username,
             password: req.body.password,
-            email: req.body.email
+            email: req.body.email,
+            phoneNumber: req.body.phoneNumber
         }
         userQueries.createUser(newUser, (err, user) => {
             if(err){

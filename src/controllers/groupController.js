@@ -33,13 +33,13 @@ module.exports = {
         })
     },
     show(req, res, next){
-        groupQueries.findGroupAndLists(req.params.groupId, (err, group, lists) => {
+        groupQueries.findGroupListsAndMessages(req.params.groupId, (err, group, lists, messages) => {
             if(err){
                 console.log(err)
                 req.flash("error", err);
                 res.redirect("/groups");
             } else {
-                res.render("group/show", {group, lists})
+                res.render("group/show", {group, lists, messages})
             }
         })
     },

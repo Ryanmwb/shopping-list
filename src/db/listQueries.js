@@ -7,7 +7,8 @@ module.exports = {
         return List.create({
             name: newList.name,
             groupId: groupId,
-            description: newList.description
+            description: newList.description,
+            groupName: newList.groupName
         })
         .then((list) => {
             callback(null, list)

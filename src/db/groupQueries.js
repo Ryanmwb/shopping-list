@@ -1,5 +1,6 @@
 const Group = require("./models").Group;
-const List = require("./models").List
+const List = require("./models").List;
+const Message = require("./models").Message;
 
 module.exports = {
     createGroup(req, callback){
@@ -48,17 +49,22 @@ module.exports = {
             })
         })
     },
-    findGroupAndLists(groupId, callback){
+    findGroupListsAndMessages(groupId, callback){
         return Group.findById(groupId)
         .then((group) => {
             List.findAll({
                 where: {groupId: group.id}
             })
             .then((lists) => {
-                callback(null, group, lists)
-            })
-            .catch((err) => {
-                callback(err)
+                Message.findAll({
+                    where: {groupId: group.id}
+                })
+                .then((messages) => {
+                    callback(null, group, lists, messages)
+                })
+                .catch((err) => {
+                    callback(err)
+                })
             })
         })
     }
