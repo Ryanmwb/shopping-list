@@ -1,5 +1,6 @@
-const userQueries = require("../db/userQueries")
-const passport = require("passport")
+const userQueries = require("../db/userQueries");
+
+const passport = require("passport");
 
 module.exports = {
     signUp(req, res, next){

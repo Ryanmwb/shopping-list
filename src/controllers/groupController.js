@@ -1,4 +1,5 @@
 const groupQueries = require("../db/groupQueries");
+const memberQueries = require("../db/memberQueries");
 
 module.exports = {
     new(req, res, next){
@@ -10,11 +11,20 @@ module.exports = {
             return res.redirect("/groups/new")
         }
 
-        groupQueries.createGroup(req, (err, group) => {
+        var member = {
+            userId: req.user.id
+        }
+
+        var group = {
+            userId: req.user.id,
+            name: req.body.groupName
+        }
+
+        groupQueries.createGroupAndMember(group, member, (err) => {
             if(err){
                 console.log(err)
                 req.flash("error", err);
-                res.redirect("/groups/new")
+                res.redirect("/groups/new");
             } else {
                 req.flash("notice", "Group was created!");
                 res.redirect("/groups")

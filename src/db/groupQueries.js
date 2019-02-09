@@ -1,19 +1,30 @@
 const Group = require("./models").Group;
 const List = require("./models").List;
 const Message = require("./models").Message;
+const Member = require("./models").Member;
+const Sequelize = require("sequelize");
+const Op = Sequelize.Op;
+const User = require("./models").User;
 
 module.exports = {
-    createGroup(req, callback){
+    createGroupAndMember(group, member, callback){
         return Group.create({
-            userId: req.user.id,
-            name: req.body.groupName
+            userId: group.userId,
+            name: group.name
         })
         .then((group) => {
-            callback(null, group);
+            return Member.create({
+                userId: member.userId,
+                groupId: group.id
+            })
+            .then(() => {
+                callback(null);
+            })
+            .catch((err) => {
+                callback(err)
+            })
         })
-        .catch((err) => {
-            callback(err)
-        })
+        
     },
     findGroupsIOwn(user, callback){
         return Group.findAll({
@@ -26,6 +37,20 @@ module.exports = {
             callback(err)
         })
     },
+    /*groupsIBelongTo(user){
+        return Member.findAll({
+            where: {userId: user.id}
+        })
+        .then((members)=> {
+            return Group.findAll({
+                where: {
+                    [Op.or]: [ members.forEach((member) => {
+                        {id: member.groupId},
+                    })]
+                }
+            })
+        })
+    },*/
     findGroup(id, callback){
         return Group.findById(id)
         .then((group) => {
