@@ -20,7 +20,7 @@ module.exports = (sequelize, DataTypes) => {
       as: "lists"
     });
     Group.hasMany(models.Member, {
-      foreignKey: "memberId",
+      foreignKey: "groupId",
       as: "members"
     });
   };

@@ -7,6 +7,19 @@ const Op = Sequelize.Op;
 const User = require("./models").User;
 
 module.exports = {
+    findGroupsThroughMember(user, callback){
+        Member.findAll({
+            where: {
+                userId: user.id
+            },
+            include: [{
+                model: Group
+            }]
+        })
+        .then((members)=> {
+            callback(null, members)
+        })
+    },
     createGroupAndMember(group, member, callback){
         return Group.create({
             userId: group.userId,
@@ -24,7 +37,6 @@ module.exports = {
                 callback(err)
             })
         })
-        
     },
     findGroupsIOwn(user, callback){
         return Group.findAll({
