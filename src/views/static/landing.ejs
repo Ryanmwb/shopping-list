@@ -6,9 +6,9 @@
     <main class="container">
         <% include ./partials/messages.ejs %>
         <header class="jumbotron">
-            <h1 class="display-4">
+            <h1 class="">
                 <% if(currentUser) { %>
-                    Welcome <%= currentUser.username %>! (static/landing)
+                    Welcome <%= currentUser.username %>!
                 <% } else { %>
                     (static/landing)
                 <% } %>
