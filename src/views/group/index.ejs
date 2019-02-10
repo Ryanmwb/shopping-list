@@ -24,20 +24,18 @@
             <thead>
                 <tr>
                     <th scope="col">Name</th>
-                    <th scope="col">Owner</th>
                     <th scope="col">Members</th>
                     <th scope="col">Last Activity</th>
                     <th scope="col">View</th>
                 </tr>
             </thead>
             <tbody>
-            <% groups.forEach((group) => { %>
+            <% members.forEach((member) => { %>
                 <tr>
-                    <td scope="row"><%= group.name %></td>
-                    <td><%= group.userId %></td>
+                    <td scope="row"><%= member.Group.name %></td>
                     <td>not built</td>
                     <td>not built</td>
-                    <td><a href="/groups/<%= group.id %>/show"><button class="btn btn-info">Visit Group</button></a></td>
+                    <td><a href="/groups/<%= member.Group.id %>/show"><button class="btn btn-info">Visit Group</button></a></td>
                 </tr>
             <% }) %>
             </tbody>

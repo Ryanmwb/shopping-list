@@ -4,17 +4,10 @@ module.exports = (sequelize, DataTypes) => {
     name: {
       type: DataTypes.STRING,
       allowNull:false 
-    },
-    userId: {
-      type: DataTypes.INTEGER,
-      allowNull:false 
-    },
+    }
   }, {});
   Group.associate = function(models) {
     // associations can be defined here
-    Group.belongsTo(models.User, {
-      foreignKey: "userId"
-    });
     Group.hasMany(models.List, {
       foreignKey: "groupId",
       as: "lists"

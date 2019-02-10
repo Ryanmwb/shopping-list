@@ -27,7 +27,7 @@ module.exports = {
         allowNull: false,
         onDelete: "CASCADE",
         references: {
-          model: "Users",
+          model: "Groups",
           key: "id",
           as: "groupId"
         }

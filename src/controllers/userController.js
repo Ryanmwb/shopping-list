@@ -1,5 +1,4 @@
 const userQueries = require("../db/userQueries");
-
 const passport = require("passport");
 
 module.exports = {
@@ -54,6 +53,53 @@ module.exports = {
         req.logout();
         req.flash("Notice", "You've successfully logged out.");
         res.redirect("/")
+    },
+    profile(req, res, next){
+        const groupQueries = require("../db/groupQueries");
+
+        groupQueries.findGroupsThroughMember(req.user, (err, members) => {
+            if(err){
+                console.log(err);
+                req.flash("error", err)
+                res.redirect("/")
+            } else {
+                res.render("user/show", {members})
+            }
+        })
+    },
+    delete(req, res, next){
+        userQueries.deleteUser(req.user.id, (err) => {
+            if(err){
+                console.log(err);
+                req.flash("error", err);
+                res.redirect(`/user/${req.user.id}/profile`);
+            } else {
+                req.flash("notice", "You deleted your profile.");
+                res.redirect("/")
+            }
+        })
+    },
+    edit(req, res, next){
+        res.render("user/edit")
+    },
+    update(req, res, next){
+        var user = {
+            id: req.user.id,
+            username: req.body.username,
+            email: req.body.email,
+            notifications: req.body.notifications,
+            phoneNumber: req.body.phoneNumber,
+        }
+        userQueries.updateUser(user, (err)=> {
+            if(err){
+                console.log(err);
+                req.flash("error", err);
+                res.redirect(`/user/${user.id}/profile`);
+            } else {
+                req.flash("notice", "Profile has been updated.");
+                res.redirect(`/user/${user.id}/profile`);
+            }
+        })
     }
 }
 

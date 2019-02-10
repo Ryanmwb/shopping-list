@@ -10,9 +10,6 @@ module.exports = {
         var groupId = req.params.groupId;
         var cell = req.body.cellNumber;
 
-        console.log("cell is....")
-        console.log(cell)
-
         memberQueries.addMemberFromCell(groupId, cell, (err)=>{
             if(err){
                 console.log("error is.....")
@@ -25,5 +22,20 @@ module.exports = {
             }
         })
 
+    },
+    deleteMember(req, res, next){
+        var groupId = req.params.groupId;
+        var userId = req.user.id;
+
+        memberQueries.deleteMember(groupId, userId, (err) => {
+            if(err){
+                console.log(err);
+                req.flash("error", err);
+                res.redirect(`/user/${userId}`);
+            } else {
+                req.flash("notice", "You left the group.");
+                res.redirect(`/user/${userId}/profile`);
+            }
+        })
     }
 }

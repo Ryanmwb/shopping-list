@@ -2,6 +2,7 @@
 see their groups
 edit their information
 turn off notifications
+delete their profile
 -->
 <!DOCTYPE html>
 <html>
@@ -10,10 +11,47 @@ turn off notifications
     <% include ../static/partials/navbar.ejs %>
     <main class="container">
         <% include ../static/partials/messages.ejs %>
-        <header class="jumbotron">
-            <h1 class="display-2">Hello, world!</h1>
+        <header class="jumbotron py-4">
+            <h1 class="display-3">Your Profile</h1>
+            <h5>User Name: <%= currentUser.username %></h5>
+            <h5>Email: <%= currentUser.email %></h5>
+            <h5>Cell Number: <%= currentUser.phoneNumber %></h5>
+            <h5>notifications: <% if(currentUser.notifications == true){%> On <%}else{%> Off <%}%></h5>
+            <h5>Joined Shoppit - <%= currentUser.createdAt %> </h5>
         </header>
-
+        <h4>My Groups</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Members</th>
+                    <th scope="col">Last Activity</th>
+                    <th scope="col">View Group</th>
+                    <th scope="col">Leave Group</th>
+                </tr>
+            </thead>
+            <tbody>
+            <% members.forEach((member) => { %>
+                <tr>
+                    <td scope="row"><%= member.Group.name %></td>
+                    <td>not built yet</td>
+                    <td><%= member.Group.updatedAt %></td>
+                    <td><a href="/groups/<%= member.Group.id %>/show"><button class="btn btn-info">Visit</button></a></td>
+                    <td>
+                        <form action="/groups/<%= member.Group.id %>/leave" method="POST">
+                            <button class="btn btn-danger">Leave</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }) %>
+            </tbody>
+        </table>
+        <h5>Edit Profile</h5>
+        <a href="/user/<%= currentUser.id %>/edit"><button class="btn btn-dark">Edit</button></a>
+        <h5>Delete Profile</h5>
+        <form action="/user/<%= currentUser.id %>/delete" method="POST">
+            <button class="btn btn-danger">Delete</button>
+        </form>
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>

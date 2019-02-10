@@ -19,10 +19,12 @@ module.exports = {
         .then((members)=> {
             callback(null, members)
         })
+        .catch((err) => {
+            callback(err)
+        })
     },
     createGroupAndMember(group, member, callback){
         return Group.create({
-            userId: group.userId,
             name: group.name
         })
         .then((group) => {

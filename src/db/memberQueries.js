@@ -22,7 +22,7 @@ module.exports = {
         })
         .then((user) => {
             if(!user){
-                callback("User doesn't exist with that number")
+                return callback("User doesn't exist with that number")
             }
             Member.findOne({
                 where: {
@@ -32,7 +32,7 @@ module.exports = {
             })
             .then((existingMember) => {
                 if(existingMember){
-                    callback("User is already a member of this group.")
+                    return callback("User is already a member of this group.")
                 }
                 Member.create({
                     groupId: groupId,
@@ -42,8 +42,25 @@ module.exports = {
                     callback(null)
                 })
                 .catch((err)=> {
-                    callback(err)
+                    return callback(err)
                 })
+            })
+        })
+    },
+    deleteMember(groupId, userId, callback){
+        return Member.findOne({
+            where:{
+                userId: userId,
+                groupId: groupId
+            }
+        })
+        .then((member) => {
+            member.destroy()
+            .then(() => {
+                callback(null)
+            })
+            .catch((err)=>{
+                callback(err)
             })
         })
     }

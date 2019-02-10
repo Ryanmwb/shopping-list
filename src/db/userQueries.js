@@ -18,5 +18,34 @@ module.exports = {
         .catch((err) => {
             callback(err)
         })
+    },
+    deleteUser(userId, callback){
+        return User.findById(userId)
+        .then((user) => {
+            user.destroy()
+            .then(()=> {
+                callback(null)
+            })
+            .catch((err) => {
+                callback(err)
+            })
+        })
+    },
+    updateUser(userEdit, callback){
+        return User.findById(userEdit.id)
+        .then((user) => {
+            user.update({
+                username: userEdit.username,
+                email: userEdit.email,
+                notifications: userEdit.notifications,
+                phoneNumber: userEdit.phoneNumber
+            })
+            .then(() => {
+                callback(null)
+            })
+            .catch((err) => {
+                callback(err)
+            })
+        })
     }
 }

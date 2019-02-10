@@ -32,13 +32,13 @@ module.exports = {
         })
     },
     myGroups(req, res, next){
-        groupQueries.findGroupsIOwn(req.user, (err, groups) => {
+        groupQueries.findGroupsThroughMember(req.user, (err, members) => {
             if(err){
                 console.log(err)
                 req.flash("error", err);
                 res.redirect("/");
             } else {
-                res.render("group/index", {groups});
+                res.render("group/index", {members});
             }
         })
     },
