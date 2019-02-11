@@ -48,7 +48,7 @@ delete their profile
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Members</th>
-                    <th class="hidden-md-down" scope="col">Last Activity</th>
+                    <th class="d-sm-mone d-xs-none d-md-none" scope="col">Last Activity</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
@@ -58,7 +58,7 @@ delete their profile
                 <tr>
                     <td scope="row"><%= member.Group.name %></td>
                     <td>not built yet</td>
-                    <td class="hidden-md-down"><%= member.Group.updatedAt %></td>
+                    <td class="d-sm-mone d-xs-none d-md-none"><%= member.Group.updatedAt %></td>
                     <td><a href="/groups/<%= member.Group.id %>/show"><button class="btn btn-info">View</button></a></td>
                     <td>
                         <form action="/groups/<%= member.Group.id %>/leave" method="POST">
