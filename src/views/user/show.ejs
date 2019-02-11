@@ -12,7 +12,11 @@ delete their profile
     <main class="container">
         <% include ../static/partials/messages.ejs %>
         <header class="jumbotron py-4">
-            <h1 class="display-3">Your Profile</h1>
+            <h1 class="display-4">Your Profile</h1>
+            <div class="row justify-content-start align-items-end">
+                <h5 class="col-3 text-right">test</h5>
+                <h6 class="mr-auto text-left">test</h6>
+            </div>
             <h5>User Name: <%= currentUser.username %></h5>
             <h5>Email: <%= currentUser.email %></h5>
             <h5>Cell Number: <%= currentUser.phoneNumber %></h5>
