@@ -15,7 +15,6 @@ A web based application that makes shopping easier.  Share your shopping list wi
 * Jquery (not currently, but it will be added to complete marking items as purchased)
 * Node
 * PostgreSQL
-* Bootstrap (kinda it's own language)
 
 ## Modules Used
 * Sequelize 
@@ -27,5 +26,6 @@ A web based application that makes shopping easier.  Share your shopping list wi
 * Bcryptjs
 * EJS
 * Morgan
+* Bootstrap
 
 ## App is live at https://shoppit-ryan.herokuapp.com/
