@@ -11,8 +11,9 @@ delete their profile
     <% include ../static/partials/navbar.ejs %>
     <main class="container">
         <% include ../static/partials/messages.ejs %>
-        <header class="jumbotron py-4">
-            <h1 class="display-4 ml-5 mb-4">Your Profile</h1>
+        <header class="jumbotron pt-4 pb-3">
+            <h1 class="display-4 ml-3 mb-2">Your Profile</h1>
+            <hr>
             <div class="row justify-content-start align-items-end">
                 <h5 class="">User Name:</h5>
                 <h5 class="col mr-auto text-left font-weight-light"><%= currentUser.username %></h5>
@@ -33,7 +34,7 @@ delete their profile
                 <h5 class="">Joined:</h5>
                 <h5 class="col mr-auto text-left font-weight-light"><%= currentUser.createdAt %></h5>
             </div>
-            <div class="row ml-auto pl-auto mt-3 justify-content-end">
+            <div class="row ml-auto pl-auto mt-3 justify-content-end ">
                 <a href="/user/<%= currentUser.id %>/edit"><button class="btn btn-warning">Edit</button></a>
                 <form action="/user/<%= currentUser.id %>/delete" class="ml-3 mr-4" method="POST">
                     <button class="btn btn-danger">Delete Profile</button>
@@ -48,8 +49,8 @@ delete their profile
                     <th scope="col">Name</th>
                     <th scope="col">Members</th>
                     <th scope="col">Last Activity</th>
-                    <th scope="col">View Group</th>
-                    <th scope="col">Leave Group</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -58,16 +59,17 @@ delete their profile
                     <td scope="row"><%= member.Group.name %></td>
                     <td>not built yet</td>
                     <td><%= member.Group.updatedAt %></td>
-                    <td><a href="/groups/<%= member.Group.id %>/show"><button class="btn btn-info">Visit</button></a></td>
+                    <td><a href="/groups/<%= member.Group.id %>/show"><button class="btn btn-info">View</button></a></td>
                     <td>
                         <form action="/groups/<%= member.Group.id %>/leave" method="POST">
-                            <button class="btn btn-danger">Leave</button>
+                            <button class="btn btn-danger">Leave Group</button>
                         </form>
                     </td>
                 </tr>
             <% }) %>
             </tbody>
         </table>
+        <a href="/groups/new"> <button class="btn btn-success">Create Group</button></a>
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>
