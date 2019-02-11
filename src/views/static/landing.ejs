@@ -14,11 +14,21 @@
                 <% } %>
             </h1>
             <p class="lead text-center">
-                Let us Simply your Shopping
+                Simplify your Shopping
             </p>
+            <% if(currentUser){ %>
+                <div class="row">
+                    <a href="/groups" class="mx-auto"><button class="btn btn-primary">My Groups</button></a> 
+                </div>
+            <% } %>
             <hr class="my-5">
             <h4 class="text-center"><u>How it works</u></h4>
             <p class="text-center mx-auto col-lg-7"><em>Sign-Up</em><br> <em>Create</em> a group<br> <em>Add</em> your roommates <br><em>Create</em> shopping list <br><em>Add</em> items <br><em>Mark</em> items as purchased</p>
+            <% if(!currentUser){ %>
+                <div class="row mt-2">
+                    <a href="/sign_up" class="mx-auto"><button class="btn btn-primary">Get Started</button></a>
+                </div> 
+            <% } %>
         </header>
 
     </main>

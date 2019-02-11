@@ -8,12 +8,13 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
                 <li class="breadcrumb-item"><a href="/groups">My Groups</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Group - <%=group.name %> - Edit</li>
+                <li class="breadcrumb-item"><a href="/groups/<%= group.id %>">Group - <%=group.name %></a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit</li>
             </ol>
         </nav>
         <% include ../static/partials/messages.ejs %>
         <header class="jumbotron">
-            <h1 class="display-2">(group/edit)</h1>
+            <h1 class="display-4">(group/edit)</h1>
         </header>
         <form method="POST" action="/groups/<%= group.id %>/update">
             <div class="form-group">

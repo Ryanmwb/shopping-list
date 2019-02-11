@@ -32,6 +32,17 @@ module.exports = {
             }
         })
     },
+    myGroups(req, res, next){
+        groupQueries.findGroupsThroughMember(req.user, (err, members) => {
+            if(err){
+                console.log(err)
+                req.flash("error", err);
+                res.redirect("/");
+            } else {
+                res.render("group/index", {members});
+            }
+        })
+    },
     show(req, res, next){
         groupQueries.findGroupListsAndMessages(req.params.groupId, (err, group, lists, messages) => {
             if(err){
