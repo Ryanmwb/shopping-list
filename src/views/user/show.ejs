@@ -12,7 +12,7 @@ delete their profile
     <main class="container">
         <% include ../static/partials/messages.ejs %>
         <header class="jumbotron py-4">
-            <h1 class="display-4">Your Profile</h1>
+            <h1 class="display-4 ml-5 mb-4">Your Profile</h1>
             <div class="row justify-content-start align-items-end">
                 <h5 class="">User Name:</h5>
                 <h5 class="col mr-auto text-left font-weight-light"><%= currentUser.username %></h5>
@@ -33,6 +33,13 @@ delete their profile
                 <h5 class="">Joined:</h5>
                 <h5 class="col mr-auto text-left font-weight-light"><%= currentUser.createdAt %></h5>
             </div>
+            <div class="row ml-auto pl-auto mt-3 justify-content-end">
+                <a href="/user/<%= currentUser.id %>/edit"><button class="btn btn-warning">Edit</button></a>
+                <form action="/user/<%= currentUser.id %>/delete" class="ml-3 mr-4" method="POST">
+                    <button class="btn btn-danger">Delete Profile</button>
+                </form>
+            </div>
+            
         </header>
         <h4>My Groups</h4>
         <table class="table table-striped">
@@ -61,12 +68,6 @@ delete their profile
             <% }) %>
             </tbody>
         </table>
-        <h5>Edit Profile</h5>
-        <a href="/user/<%= currentUser.id %>/edit"><button class="btn btn-dark">Edit</button></a>
-        <h5>Delete Profile</h5>
-        <form action="/user/<%= currentUser.id %>/delete" method="POST">
-            <button class="btn btn-danger">Delete</button>
-        </form>
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>
