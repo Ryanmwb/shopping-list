@@ -5,14 +5,20 @@
     <% include ./partials/navbar.ejs %>
     <main class="container">
         <% include ./partials/messages.ejs %>
-        <header class="jumbotron">
-            <h1 class="">
+        <header class="jumbotron py-5">
+            <h1 class="text-center">
                 <% if(currentUser) { %>
-                    Welcome <%= currentUser.username %>!
+                    <%= currentUser.username %>, Welcome to Shoppit!
                 <% } else { %>
-                    (static/landing)
+                    Welcome to Shoppit!
                 <% } %>
             </h1>
+            <p class="lead text-center">
+                Let us Simply your Shopping
+            </p>
+            <hr class="my-5">
+            <h4 class="text-center"><u>How it works</u></h4>
+            <p class="text-center mx-auto col-lg-7"><em>Sign-Up</em><br> <em>Create</em> a group<br> <em>Add</em> your roommates <br><em>Create</em> shopping list <br><em>Add</em> items <br><em>Mark</em> items as purchased</p>
         </header>
 
     </main>
