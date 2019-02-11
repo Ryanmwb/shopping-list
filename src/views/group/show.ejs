@@ -67,14 +67,14 @@
                 <div class="card-body">
                     <% lists.forEach((list) => { %>
                         <a href="/groups/<%= group.id %>/lists/<%= list.id %>/show">
-                            <div class="col-sm-12 col-md-6 col-lg-6 mb-3 mx-auto">
-                                <div class="card bg-info">
-                                        <h5 class="card-title text-light text-center display-4"><%= list.name %></h5>
+                            <div class="col-sm-12 col-md-6 col-lg-6 mx-auto">
+                                <div class="card bg-primary">
+                                        <h3 class="card-title text-light text-center my-2 font-weight-light"><%= list.name %></h3>
                                 </div>
                             </div>
                         </a>
                     <% }) %>
-                <a class="" href="/groups/<%= group.id %>/<%= group.name %>/lists/new"><button class="btn btn-success ml-auto">Create List</button></a>
+                <a class="justify-content-center" href="/groups/<%= group.id %>/<%= group.name %>/lists/new"><button class="btn btn-success">Create List</button></a>
                 </div>
               </div>
             </div>
