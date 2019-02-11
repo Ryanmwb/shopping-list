@@ -35,8 +35,8 @@ delete their profile
                 <h5 class="col mr-auto text-left font-weight-light"><%= currentUser.createdAt %></h5>
             </div>
             <div class="row ml-auto pl-auto mt-3 justify-content-end ">
-                <a href="/user/<%= currentUser.id %>/edit"><button class="btn btn-warning m-1">Edit</button></a>
-                <form action="/user/<%= currentUser.id %>/delete" class="m1" method="POST">
+                <a href="/user/<%= currentUser.id %>/edit"><button class="btn btn-warning">Edit</button></a>
+                <form action="/user/<%= currentUser.id %>/delete" class="ml-3 mr-4" method="POST">
                     <button class="btn btn-danger">Delete Profile</button>
                 </form>
             </div>
@@ -56,9 +56,9 @@ delete their profile
                 <tr>
                     <td scope="row"><%= member.Group.name %></td>
                     <td><%= member.Group.dataValues.numberOfMembers %></td>
-                    <td class="row justify-content-end">
-                        <a href="/groups/<%= member.Group.id %>/show"><button class="btn btn-info mr-2">View</button></a>
-                        <form action="/groups/<%= member.Group.id %>/leave" method="POST">
+                    <td class="row justify-content-end mr-2">
+                        <a href="/groups/<%= member.Group.id %>/show"><button class="btn btn-info m-1">View</button></a>
+                        <form action="/groups/<%= member.Group.id %>/leave" method="POST" class="m-1">
                             <button class="btn btn-danger">Leave Group</button>
                         </form>
                     </td>
