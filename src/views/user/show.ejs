@@ -36,7 +36,7 @@ delete their profile
             </div>
             <div class="row ml-auto pl-auto mt-3 justify-content-end ">
                 <a href="/user/<%= currentUser.id %>/edit"><button class="btn btn-warning">Edit</button></a>
-                <form action="/user/<%= currentUser.id %>/delete" class="ml-3 mr-4" method="POST">
+                <form action="/user/<%= currentUser.id %>/delete" class="ml-2 mr-4" method="POST">
                     <button class="btn btn-danger">Delete Profile</button>
                 </form>
             </div>
@@ -69,7 +69,7 @@ delete their profile
             <% }) %>
             </tbody>
         </table>
-        <a href="/groups/new" class="mb-3"> <button class="btn btn-success">Create Group</button></a>
+        <a href="/groups/new" class="mb-5"> <button class="btn btn-success">Create Group</button></a>
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>
