@@ -15,23 +15,23 @@ delete their profile
             <h1 class="display-4 ml-3 mb-2">Your Profile</h1>
             <hr>
             <div class="row justify-content-start align-items-end">
-                <h5 class="">User Name:</h5>
+                <h5 class="ml-1">User Name:</h5>
                 <h5 class="col mr-auto text-left font-weight-light"><%= currentUser.username %></h5>
             </div>
             <div class="row justify-content-start align-items-end">
-                <h5 class="">Email:</h5>
+                <h5 class="ml-1">Email:</h5>
                 <h5 class="col mr-auto text-left font-weight-light"><%= currentUser.email %></h5>
             </div>
             <div class="row justify-content-start align-items-end">
-                <h5 class="">Number:</h5>
+                <h5 class="ml-1">Number:</h5>
                 <h5 class="col mr-auto text-left font-weight-light"><%= currentUser.phoneNumber %></h5>
             </div>
             <div class="row justify-content-start align-items-end">
-                <h5 class="">Notifications:</h5>
+                <h5 class="ml-1">Notifications:</h5>
                 <h5 class="col mr-auto text-left font-weight-light"><% if(currentUser.notifications == true){%> On <%}else{%> Off <%}%></h5>
             </div>
             <div class="row justify-content-start align-items-end">
-                <h5 class="">Joined:</h5>
+                <h5 class="ml-1">Joined:</h5>
                 <h5 class="col mr-auto text-left font-weight-light"><%= currentUser.createdAt %></h5>
             </div>
             <div class="row ml-auto pl-auto mt-3 justify-content-end ">
