@@ -35,8 +35,8 @@ delete their profile
                 <h5 class="col mr-auto text-left font-weight-light"><%= currentUser.createdAt %></h5>
             </div>
             <div class="row ml-auto pl-auto mt-3 justify-content-end ">
-                <a href="/user/<%= currentUser.id %>/edit"><button class="btn btn-warning">Edit</button></a>
-                <form action="/user/<%= currentUser.id %>/delete" class="ml-3 mr-4" method="POST">
+                <a href="/user/<%= currentUser.id %>/edit"><button class="btn btn-warning m-1">Edit</button></a>
+                <form action="/user/<%= currentUser.id %>/delete" class="m1" method="POST">
                     <button class="btn btn-danger">Delete Profile</button>
                 </form>
             </div>
