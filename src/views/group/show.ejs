@@ -34,9 +34,9 @@
                     <ul class="list-group col-lg-9 mx-auto mb-3">
                         <% messages.forEach((message) => { 
                             if(currentUser.id == message.userId) { %>
-                                <li class="col-lg-9 col-sm-11 list-group-item text-light text-right bg-success mt-1 ml-auto" id="yourMessage">
+                                <li class="col-lg-9 col-sm-10 list-group-item text-light text-right bg-success mt-1 ml-auto" id="yourMessage">
                             <% } else {%>
-                                <li class="col-lg-9 col-sm-11 list-group-item text-light text-left bg-primary mt-1 mr-auto" id="otherMessage">
+                                <li class="col-lg-9 col-sm-10 list-group-item text-light text-left bg-primary mt-1 mr-auto" id="otherMessage">
                             <% } %>
                                     <strong> <%= message.username %> - </strong> <%= message.text %>
                                 </li>
