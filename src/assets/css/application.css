@@ -1,3 +1,14 @@
 main {
     padding-top: 70px
 }
+
+/* Group show */
+#yourMessage{
+    border-radius: 12px;
+    border-bottom-right-radius: 0px;
+}
+
+#otherMessage{
+    border-radius: 12px;
+    border-bottom-left-radius: 0px;
+}

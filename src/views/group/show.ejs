@@ -14,7 +14,7 @@
         </nav>
         <% include ../static/partials/messages.ejs %>
         <header class="jumbotron pb-4">
-            <h1 class="display-2 mb-5"><%= group.name %> (group/show)</h1>
+            <h1 class="display-4 mb-5"><%= group.name %> (group/show)</h1>
             <a href="/groups/<%= group.id %>/members/new"><button class="btn btn-success">Add Member</button></a>
             <a href="/groups/<%= group.id %>/edit_form"><button class="btn btn-warning">Edit Group</button></a>
         </header>
@@ -31,12 +31,23 @@
               <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
                 <div class="card-body bg-secondary">
                     <!-- Display Messages-->
-                    <% messages.forEach((message) => { %>
-                        <div class="mx-auto">
-                            <%= message.username %>
-                            <%= message.text %>
-                        </div>
-                    <% }) %>
+                    <ul class="list-group col-lg-9 mx-auto mb-3">
+                        <% messages.forEach((message) => { 
+                            if(currentUser.id == message.userId) { %>
+                                <li class="col-9 list-group-item text-light text-right bg-success mt-1 ml-auto" id="yourMessage">
+                            <% } else {%>
+                                <li class="col-9 list-group-item text-light text-left bg-primary mt-1 mr-auto" id="otherMessage">
+                            <% } %>
+                                    <strong> <%= message.username %> - </strong> <%= message.text %>
+                                </li>
+                            <!-- <div class="row col-lg-8 my-2">
+                                <div class="bg-success ml-auto p-3 w-60">
+                                    <strong> <%= message.username %> - </strong>
+                                    <%= message.text %>
+                                </div>
+                            </div> -->
+                        <% }) %> 
+                    </ul>
                   <!-- Create new Message -->
                     <form method="POST" class="col-lg-6 bg-light shadow-lg rounded mx-auto" action="/groups/<%= group.id %>/messages/create">
                         <label for="text" class="font-weight-normal mt-2 text-dark">Create Message</label>
