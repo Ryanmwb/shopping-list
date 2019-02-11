@@ -7,15 +7,24 @@
     <% include ../static/partials/navbar.ejs %>
     <main class="container">
         <% include ../static/partials/messages.ejs %>
-        <header class="jumbotron">
-            <h1 class="display-2">Add Members</h1>
-            <form class="mt-5 px-auto" method="POST" action="/groups/<%= groupId %>/members/add">
-                <div class="form-group col-lg-8">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Home</a></li>
+                <li class="breadcrumb-item"><a href="/groups">My Groups</a></li>
+                <li class="breadcrumb-item"><a href="/groups/<%= groupId %>/show">Group</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add Member</li>
+            </ol>
+        </nav>
+        <header class="jumbotron py-5">
+            <h1 class="display-4 text-center">Add Members</h1>
+            <hr>
+            <form method="POST" class="col-lg-6 mx-auto" action="/groups/<%= groupId %>/members/add">
+                <div class="form-group">
                     <label for="cellNumber">Cell Number</label>
                     <input type="text" class="form-control" id="cellNumber" name="cellNumber">
                     <small class="form-text text-muted">Add one member at a time.  Enter 10 digit cell number of User. </small>
                 </div>
-                <button type="submit" class="btn btn-success">Add Member</button>
+                <button type="submit" class="btn btn-success mx-auto">Add Member</button>
             </form>
         </header>
     </main>

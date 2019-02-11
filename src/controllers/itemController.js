@@ -10,6 +10,9 @@ module.exports = {
             listId: listId
         }
 
+        console.log("item is.....")
+        console.log(newItem)
+
         itemQueries.createItem(newItem, req.user.id, (err, item) => {
             if(err){
                 console.log(err);

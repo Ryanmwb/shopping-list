@@ -15,8 +15,10 @@
                 <li class="breadcrumb-item active" aria-current="page">List - <%= list.name %></li>
             </ol>
         </nav>
-        <h1 class="display-3"><%= list.name %> (list/show)</h1>
-        <h4>Description:   <%= list.description %></h4>
+        <header class="jumbotron py-5">
+                <h1 class="display-4 text-center">List - <%= list.name %></h1>
+                <h4 class="font-weight-light">Description: <%= list.description %></h4>
+        </header>
         <h3>items</h3>
         <table class="table table-striped">
             <thead>

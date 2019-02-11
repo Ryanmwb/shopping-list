@@ -4,9 +4,9 @@ module.exports = {
     createItem(newItem, userId, callback){
         return Item.create({
             name: newItem.name,
-            notes: newItem.notes,
             listId: newItem.listId,
-            userId: userId
+            userId: userId,
+            price: newItem.price
         })
         .then((item) => {
             callback(null, item)
