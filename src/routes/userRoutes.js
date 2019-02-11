@@ -13,6 +13,6 @@ router.get("/sign_out", userController.signOut);
 router.get("/user/:userId/profile", userController.profile);
 router.post("/user/:userId/delete", userController.delete);
 router.get("/user/:userId/edit", userController.edit);
-router.post("/user/:userId/update", userController.update)
+router.post("/user/:userId/update", userController.update);
 
 module.exports = router;

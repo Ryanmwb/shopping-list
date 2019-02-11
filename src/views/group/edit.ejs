@@ -3,7 +3,7 @@
     <% include ../static/partials/head.ejs %>
 <body>
     <% include ../static/partials/navbar.ejs %>
-    <main class="container">
+    <main class="container mb-5">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
@@ -13,16 +13,18 @@
             </ol>
         </nav>
         <% include ../static/partials/messages.ejs %>
-        <header class="jumbotron">
-            <h1 class="display-4">(group/edit)</h1>
+        <header class="jumbotron py-5">
+            <h1 class="display-4 text-center">Edit Group</h1>
+            <hr>
+            <form method="POST" class="col-lg-7 mx-auto" action="/groups/<%= group.id %>/update">
+                <div class="form-group">
+                    <label for="groupName">Group Name</label>
+                    <input type="text" class="form-control" id="groupName" name="groupName" value="<%= group.name %>">
+                </div>
+                <button type="submit" class="btn btn-success">Save Changes</button>
+            </form>
         </header>
-        <form method="POST" action="/groups/<%= group.id %>/update">
-            <div class="form-group">
-                <label for="groupName">Group Name</label>
-                <input type="text" class="form-control" id="groupName" name="groupName" value="<%= group.name %>">
-            </div>
-            <button type="submit" class="btn btn-success">Save Changes</button>
-        </form>
+        
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>
