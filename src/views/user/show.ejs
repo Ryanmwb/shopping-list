@@ -14,23 +14,23 @@ delete their profile
         <header class="jumbotron py-4">
             <h1 class="display-4">Your Profile</h1>
             <div class="row justify-content-start align-items-end">
-                <h5 class="col-lg-3 col-sm-5 text-right">User Name:</h5>
+                <h5 class="col-lg-3 col text-right">User Name:</h5>
                 <h5 class="mr-auto text-left font-weight-light"><%= currentUser.username %></h5>
             </div>
             <div class="row justify-content-start align-items-end">
-                <h5 class="col-lg-3 col-sm-5 text-right">Email:</h5>
+                <h5 class="col-lg-3 col text-right">Email:</h5>
                 <h5 class="mr-auto text-left font-weight-light"><%= currentUser.email %></h5>
             </div>
             <div class="row justify-content-start align-items-end">
-                <h5 class="col-lg-3 col-sm-5 text-right">Number:</h5>
+                <h5 class="col-lg-3 col text-right">Number:</h5>
                 <h5 class="mr-auto text-left font-weight-light"><%= currentUser.phoneNumber %></h5>
             </div>
             <div class="row justify-content-start align-items-end">
-                <h5 class="col-lg-3 col-sm-5 text-right">Notifications:</h5>
+                <h5 class="col-lg-3 col text-right">Notifications:</h5>
                 <h5 class="mr-auto text-left font-weight-light"><% if(currentUser.notifications == true){%> On <%}else{%> Off <%}%></h5>
             </div>
             <div class="row justify-content-start align-items-end">
-                <h5 class="col-lg-3 col-sm-5 text-right">Joined:</h5>
+                <h5 class="col-lg-3 col text-right">Joined:</h5>
                 <h5 class="mr-auto text-left font-weight-light"><%= currentUser.createdAt %></h5>
             </div>
         </header>
