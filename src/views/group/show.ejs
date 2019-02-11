@@ -8,8 +8,8 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
-                <li class="breadcrumb-item"><a href="/groups">My Groups</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Group - <%=group.name %></li>
+                <li class="breadcrumb-item"><a href="/user/<%= currentUser.id %>/profile">Profile</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><%=group.name %></li>
             </ol>
         </nav>
         <% include ../static/partials/messages.ejs %>
@@ -24,7 +24,7 @@
             <div class="card">
               <div class="card-header bg-info text-light" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="headingOne">
                 <h4 class="mb-0 font-weight-light text-center">
-                    Messages
+                    Toggle Messages
                 </h4>
               </div>
           
@@ -49,7 +49,7 @@
             <div class="card">
               <div class="card-header bg-info text-light collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"" id="headingTwo">
                 <h4 class="mb-0 font-weight-light text-center">
-                    Shopping Lists
+                    Toggle Shopping Lists
                 </h4>
               </div>
               <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">

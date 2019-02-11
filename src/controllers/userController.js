@@ -58,10 +58,6 @@ module.exports = {
         const groupQueries = require("../db/groupQueries");
 
         groupQueries.findGroupsThroughMember(req.user, (err, members) => {
-            console.log("userController.profile members.Group.dataValues are.....")
-            members.forEach((member) => {
-                console.log(member.Group.dataValues)
-            })
             if(err){
                 console.log(err);
                 req.flash("error", err)
