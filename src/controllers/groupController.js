@@ -12,7 +12,8 @@ module.exports = {
         }
 
         var member = {
-            userId: req.user.id
+            userId: req.user.id,
+            username: req.user.username
         }
 
         var group = {

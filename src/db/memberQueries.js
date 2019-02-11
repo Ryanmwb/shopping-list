@@ -1,19 +1,8 @@
 const Member = require("./models").Member;
+const Group = require("./models").Group;
 const User = require("./models").User;
 
 module.exports = {
-    createMember(member, callback){
-        Member.create({
-            groupId: member.groupId,
-            userId: member.userId
-        })
-        .then((member) => {
-            callback(null, member)
-        })
-        .catch((err) => {
-            callback(null)
-        })
-    },
     addMemberFromCell(groupId, cell, callback){
         User.findOne({
             where: {
@@ -36,13 +25,27 @@ module.exports = {
                 }
                 Member.create({
                     groupId: groupId,
-                    userId: user.id
+                    userId: user.id,
+                    username: user.username
                 })
                 .then(() => {
-                    callback(null)
-                })
-                .catch((err)=> {
-                    return callback(err)
+                    Group.findById(groupId)
+                    .then((group) => {
+                        Member.findAll({
+                            where: {groupId: groupId}
+                        })
+                        .then((members) => {
+                            group.update({
+                                numberOfMembers: members.length
+                            })
+                            .then(() => {
+                                callback(null)
+                            })
+                            .catch((err)=> {
+                                return callback(err)
+                            })
+                        })
+                    })
                 })
             })
         })
@@ -56,12 +59,20 @@ module.exports = {
         })
         .then((member) => {
             member.destroy()
-            .then(() => {
+            .then(()=> {
+                Group.findById(groupId)
+                .then((group) => {
+                    group.update({
+                        numberOfMembers: group.numberOfMembers-1
+                    })
+                })
+            })
+            /*.then(() => {
                 callback(null)
             })
             .catch((err)=>{
                 callback(err)
-            })
+            })*/
         })
     }
 }

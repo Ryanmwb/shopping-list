@@ -11,7 +11,7 @@ delete their profile
     <% include ../static/partials/navbar.ejs %>
     <main class="container">
         <% include ../static/partials/messages.ejs %>
-        <header class="jumbotron pt-4 pb-3">
+        <header class="jumbotron pt-4 pb-3 mx-auto">
             <h1 class="display-4 ml-3 mb-2">Your Profile</h1>
             <hr>
             <div class="row justify-content-start align-items-end">
@@ -49,19 +49,21 @@ delete their profile
                     <th scope="col">Name</th>
                     <th scope="col">Members</th>
                     <th scope="col"></th>
-                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
             <% members.forEach((member) => { %>
                 <tr>
                     <td scope="row"><%= member.Group.name %></td>
-                    <td>not built yet</td>
-                    <td><a href="/groups/<%= member.Group.id %>/show"><button class="btn btn-info">View</button></a></td>
-                    <td>
+                    <td><%= member.Group.dataValues.numberOfMembers %></td>
+                    <td class="row justify-content-end">
+                        <a href="/groups/<%= member.Group.id %>/show"><button class="btn btn-info mr-2">View</button></a>
                         <form action="/groups/<%= member.Group.id %>/leave" method="POST">
                             <button class="btn btn-danger">Leave Group</button>
                         </form>
+                    </td>
+                    <td>
+                        
                     </td>
                 </tr>
             <% }) %>

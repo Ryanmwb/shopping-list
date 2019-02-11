@@ -8,6 +8,10 @@ module.exports = (sequelize, DataTypes) => {
     groupId: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    username: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {});
   Member.associate = function(models) {

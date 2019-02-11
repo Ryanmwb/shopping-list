@@ -2,9 +2,7 @@ const Group = require("./models").Group;
 const List = require("./models").List;
 const Message = require("./models").Message;
 const Member = require("./models").Member;
-const Sequelize = require("sequelize");
-const Op = Sequelize.Op;
-const User = require("./models").User;
+// const User = require("./models").User;
 
 module.exports = {
     findGroupsThroughMember(user, callback){
@@ -25,12 +23,14 @@ module.exports = {
     },
     createGroupAndMember(group, member, callback){
         return Group.create({
-            name: group.name
+            name: group.name,
+            numberOfMembers: 1
         })
         .then((group) => {
             return Member.create({
                 userId: member.userId,
-                groupId: group.id
+                groupId: group.id,
+                username: member.username
             })
             .then(() => {
                 callback(null);
@@ -40,31 +40,6 @@ module.exports = {
             })
         })
     },
-    findGroupsIOwn(user, callback){
-        return Group.findAll({
-            where: {userId: user.id}
-        })
-        .then((groups) => {
-            callback(null, groups)
-        })
-        .catch((err) => {
-            callback(err)
-        })
-    },
-    /*groupsIBelongTo(user){
-        return Member.findAll({
-            where: {userId: user.id}
-        })
-        .then((members)=> {
-            return Group.findAll({
-                where: {
-                    [Op.or]: [ members.forEach((member) => {
-                        {id: member.groupId},
-                    })]
-                }
-            })
-        })
-    },*/
     findGroup(id, callback){
         return Group.findById(id)
         .then((group) => {
