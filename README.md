@@ -9,7 +9,7 @@
 # What is Shoppit
 A web based application that makes shopping easier.  Share your shopping list with your friends, family, and roommates to make sure no one forgets what they are shopping for when they are at the store (we've all done it).  There is also group messaging if you need to add any last minute items to the list and want to communicate it with your group!
 
-##Languates Used
+## Languates Used
 * HTML5/CSS
 * Javascript
 * Jquery (not currently, but it will be added to complete marking items as purchased)
