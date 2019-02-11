@@ -48,7 +48,7 @@ delete their profile
                 <tr>
                     <th scope="col">Name</th>
                     <th scope="col">Members</th>
-                    <th class="hidden-sm-down" scope="col">Last Activity</th>
+                    <th class="hidden-md-down" scope="col">Last Activity</th>
                     <th scope="col"></th>
                     <th scope="col"></th>
                 </tr>
@@ -58,7 +58,7 @@ delete their profile
                 <tr>
                     <td scope="row"><%= member.Group.name %></td>
                     <td>not built yet</td>
-                    <td class="hidden-sm-down"><%= member.Group.updatedAt %></td>
+                    <td class="hidden-md-down"><%= member.Group.updatedAt %></td>
                     <td><a href="/groups/<%= member.Group.id %>/show"><button class="btn btn-info">View</button></a></td>
                     <td>
                         <form action="/groups/<%= member.Group.id %>/leave" method="POST">
@@ -69,7 +69,7 @@ delete their profile
             <% }) %>
             </tbody>
         </table>
-        <a href="/groups/new"> <button class="btn btn-success">Create Group</button></a>
+        <a href="/groups/new" class="mb-3"> <button class="btn btn-success">Create Group</button></a>
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>
