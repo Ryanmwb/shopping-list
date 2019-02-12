@@ -10,17 +10,14 @@ module.exports = {
             req.flash("notice", "You must be signed in to create a group.")
             return res.redirect("/groups/new")
         }
-
         var member = {
             userId: req.user.id,
             username: req.user.username
         }
-
         var group = {
             userId: req.user.id,
             name: req.body.groupName
         }
-
         groupQueries.createGroupAndMember(group, member, (err) => {
             if(err){
                 console.log(err)
