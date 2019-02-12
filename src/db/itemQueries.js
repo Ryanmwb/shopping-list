@@ -1,15 +1,16 @@
 const Item = require("./models").Item;
 
 module.exports = {
-    createItem(newItem, userId, callback){
+    createItem(newItem, userId, username, callback){
         return Item.create({
             name: newItem.name,
             listId: newItem.listId,
             userId: userId,
-            price: newItem.price
+            price: newItem.price,
+            username: username
         })
         .then((item) => {
-            callback(null, item)
+            callback(null)
         })
         .catch((err) => {
             callback(err)
