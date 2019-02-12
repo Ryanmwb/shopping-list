@@ -27,5 +27,42 @@ module.exports = {
                 callback(err)
             })
         })
+    },
+    purchaseNowTrue(itemId, callback){
+        return Item.findById(itemId)
+        .then((itemOld) => {
+            itemOld.update({
+                purchased: true
+            })
+            .then((item) => {
+                callback(null, item)
+            })
+            .catch((err) => {
+                callback(err)
+            })
+        })
+    },
+    purchaseNowFalse(itemId, callback){
+        return Item.findById(itemId)
+        .then((itemOld) => {
+            itemOld.update({
+                purchased: false
+            })
+            .then((item) => {
+                callback(null, item)
+            })
+            .catch((err) => {
+                callback(err)
+            })
+        })
+    },
+    findItem(itemId, callback){
+        return Item.findById(itemId)
+        .then((item) => {
+            callback(null, item)
+        })
+        .catch((err) => {
+            callback(err)
+        })
     }
 }

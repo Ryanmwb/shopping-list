@@ -9,24 +9,27 @@
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/">Home</a></li>
                 <li class="breadcrumb-item"><a href="/groups">My Groups</a></li>
-                <li class="breadcrumb-item"><a href="/groups/<%= groupId %>/show">Group Id - <%= groupId %></a></li>
-                <li class="breadcrumb-item active" aria-current="page">List - <%= list.name %> - Edit</li>
+                <li class="breadcrumb-item"><a href="/groups/<%= groupId %>/show">Group</a></li>
+                <li class="breadcrumb-item"><a href="/groups/<%= groupId %>/lists/ <%= list.id %>/show">List - <%= list.name %></a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit</li>
             </ol>
         </nav>
         <header class="jumbotron">
-            <h1 class="display-2"><%= list.name %> (list/edit)</h1>
-        </header>
-        <form method="POST" action="/groups/<%= groupId %>/lists/<%= list.id %>/update">
-            <div class="form-group">
-                <label for="listName">List Name</label>
-                <input type="text" class="form-control" id="listName" name="listName" value="<%= list.name %>">
-            </div>
-            <div class="form-group">
-                    <label for="listDescription">List Description</label>
-                    <textarea name="listDescription" id="listDescription" class="form-control"><%= list.Description %></textarea>
+            <h1 class="display-4 text-center"><%= list.name %></h1>
+            <hr>
+            <form method="POST" class="col-lg-8 mx-auto" action="/groups/<%= groupId %>/lists/<%= list.id %>/update">
+                <div class="form-group">
+                    <label for="listName">List Name</label>
+                    <input type="text" class="form-control" id="listName" name="listName" value="<%= list.name %>">
                 </div>
-            <button type="submit" class="btn btn-success">Save Changes</button>
-        </form>
+                <div class="form-group">
+                        <label for="listDescription">List Description</label>
+                        <textarea name="listDescription" id="listDescription" class="form-control"><%= list.Description %></textarea>
+                    </div>
+                <button type="submit" class="btn btn-success">Save Changes</button>
+            </form>
+        </header>
+        
     </main>
 
     <% include ../static/partials/baseScripts.ejs %>

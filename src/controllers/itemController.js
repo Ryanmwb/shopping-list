@@ -35,5 +35,59 @@ module.exports = {
                 res.redirect(`/groups/${groupId}/lists/${listId}/show`);
             }
         })
+    },
+    purchase(req, res, next){
+        var groupId = req.params.groupId;
+        var listId = req.params.listId;
+        var itemId = req.params.itemId;
+        console.log("item id is.....")
+        console.log(itemId)
+
+        /*itemQueries.purchaseButton(itemId, (err, item) => {
+            console.log("item now is.....")
+            console.log(item.purchased)
+            if(err){
+                console.log(err)
+                req.flash("error", err)
+                res.redirect(`/groups/${groupId}/lists/${listId}/show`)
+            } else {
+                res.redirect(`/groups/${groupId}/lists/${listId}/show`)
+            }
+        })*/
+        itemQueries.findItem(itemId, (err, item) => {
+            if(err){
+                console.log(err)
+                req.flash("error", err)
+                res.redirect(`/groups/${groupId}/lists/${listId}/show`)
+            } else {
+                console.log("item returned from find it....")
+                console.log(item)
+                if(item.purchased == true){
+                    itemQueries.purchaseNowFalse(itemId, (err, itemUpdated) => {
+                        if(err){
+                            console.log(err)
+                            req.flash("error", err)
+                            res.redirect(`/groups/${groupId}/lists/${listId}/show`)  
+                        } else {
+                            console.log("purchase now false was called");
+                            console.log(itemUpdated);
+                            res.redirect(`/groups/${groupId}/lists/${listId}/show`); 
+                        }
+                    })
+                } else if (item.purchased == false){
+                    itemQueries.purchaseNowTrue(itemId, (err, itemUpdated) => {
+                        if(err){
+                            console.log(err)
+                            req.flash("error", err)
+                            res.redirect(`/groups/${groupId}/lists/${listId}/show`)  
+                        } else {
+                            console.log("purchase now true was called");
+                            console.log(itemUpdated)
+                            res.redirect(`/groups/${groupId}/lists/${listId}/show`); 
+                        }
+                    })
+                }
+            }
+        })
     }
 }
