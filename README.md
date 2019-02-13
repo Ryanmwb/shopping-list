@@ -1,6 +1,8 @@
 ## Important Notes
 **A)** App is working at live at the link below, but since I am currently using the free version of Twilio, so all non-verified numbers will not receive text notifications.
 
+**B)** If you want to run the app locally you can clone the repo then complete a few steps below.
+
 1. Create a `.env` file in the root directory. 
 2. Add a `Secret` variable and give it a value of your choosing.  Example) `Secret=123456`.
 3. Get an `accountSid` and `auth_token` from Twilio and add it to the `.env` file.  --> https://www.twilio.com/docs/libraries/node
