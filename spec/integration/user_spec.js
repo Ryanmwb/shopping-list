@@ -55,7 +55,7 @@ describe("routes : static", () => {
         it("should render a view with sign in form", (done) => {
             request.get(`${base}sign_in_form`, (err, res, body) => {
                 expect(err).toBeNull();
-                expect(body).toContain("Sign-in")
+                expect(body).toContain("Sign-in");
                 done();
             })
         })

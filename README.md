@@ -1,7 +1,6 @@
 ## Important Notes
-**A)** All of the functionality has been created on the backend, there are just a few features I need to move to the view.  Like clicking items to mark them purchased.  Custom error messages for trying to sign-up under an email or username that is already in use. etc.
+**A)** App is working at live at the link below, but since I am currently using the free version of Twilio, so all non-verified numbers will not receive text notifications.
 
-**B)** The app is live at a link below, but currently some of the bootstrap buttons aren't working on the production side at the host site.  There are no issues with it locally however, so if you close this repo you will need to complete a couple steps. 
 1. Create a `.env` file in the root directory. 
 2. Add a `Secret` variable and give it a value of your choosing.  Example) `Secret=123456`.
 3. Get an `accountSid` and `auth_token` from Twilio and add it to the `.env` file.  --> https://www.twilio.com/docs/libraries/node
