@@ -20,3 +20,102 @@ input[type='checkbox'] {
     width: 25px;
     height: 25px;
 }
+
+/* testing skills */
+
+body{
+    height: 100%;
+    background: rgb(235, 235, 235)
+}
+
+
+#topNav{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: yellowgreen;
+    height: 50px;
+    padding: 0;
+    z-index: 100;
+}
+#topNav h2{
+    float: left;
+    margin-left: 10px;
+    line-height: 50px;
+}
+#topNav ul{
+    list-style-type: none;
+    margin: 0;
+    margin-right: 25px;
+    height: 100%;
+    padding: auto 0;
+}
+#topNav li {
+    float: right;
+    margin-right: 8px;
+    padding: 0 5px;
+    
+}
+#topNav li:hover{
+    background: blue;
+}
+#topNav a{
+    line-height: 50px;
+    color: white;
+    text-decoration-line: none;
+}
+
+
+
+#sideNav{
+    position: fixed;
+    top: 50px;
+    left: 0;
+    height: 100%;
+    overflow: hidden;
+    width: 200px;
+    background: gray;
+    transition: 0.5s;
+}
+#close {
+    float: right;
+    font-size: 18px;
+    margin-right: 5px;
+    text-decoration-line: none;
+    color: black;
+}
+#sideTitle{
+    text-align: center;
+    margin-top: 10px;
+    padding: 0;
+    font-size: 40px;
+}
+#sideNav ul{
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+#sideNav li{
+    text-align: center;
+    margin-bottom: 8px;
+}
+.sideLinks{
+    color: white;
+    font-size: 30px;
+}
+
+
+#section{
+    margin-left: 200px;
+    margin-top: 50px;
+    padding-left: 20px;
+    transition: 0.5s;
+}
+
+
+#title{
+    float: left;
+    font-size: 40px;
+    margin-right: 8px;
+}
